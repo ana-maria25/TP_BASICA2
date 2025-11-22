@@ -31,6 +31,23 @@ public abstract class Criatura {
 		return comportamiento;
 	}
 	
+	//METODO QUE UTILIZA MAESTRO: 
+	
+	//Un método para saber si son inestables
+	public boolean esInestable() {
+	    return this.comportamiento == Comportamiento.INESTABLE;
+	}
+
+	//Un método para pacificarlas
+	public void pacificar() {
+	    this.comportamiento = Comportamiento.TRANQUILA;
+	}
+
+	
+	//Un método para modificar energía
+	protected void aumentarEnergia(int cantidad) {
+	    this.nivelEnergia += cantidad;
+	}
 	
 }
 
