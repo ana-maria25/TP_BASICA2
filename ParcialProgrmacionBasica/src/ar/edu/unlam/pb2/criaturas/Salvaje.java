@@ -14,6 +14,8 @@ public class Salvaje extends Criatura{
 	}
 	
 	
+	// agrego un comentario
+	
 
 
 }
