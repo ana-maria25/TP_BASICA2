@@ -80,34 +80,43 @@ public class MaestroElemental {
         return afinidadPrincipal;
     }
 
-    // ----- Métodos que implementaremos después -----
-
-    /**
-     * Entrena a la criatura identificada por nombre.
-     * La implementación concreta depende de las reglas por tipo de criatura
-     * (Salvaje/Domesticada/Ancestral). Lanzará FaltaDeMaestriaException si el
-     * maestro no tiene la maestría requerida para el tipo de entrenamiento.
-     *
-     * Dejo la firma ya lista para usar en los tests: implementaremos la lógica
-     * cuando tengamos la API de Criatura.
-     */
+    
+    
     public void entrenar(String nombreCriatura) throws FaltaDeMaestriaException {
-        // TODO: implementar reglas de entrenamiento según tipo de criatura
-        // (Depende de métodos públicos de Criatura: p.ej. aumentarEnergia, getTipo, etc.)
-        throw new UnsupportedOperationException("Método entrenar aún no implementado");
+        Criatura criatura = criaturas.get(nombreCriatura);
+
+        if (criatura == null) {
+            throw new IllegalArgumentException("La criatura no existe: " + nombreCriatura);
+        }
+
+        // Regla arbitraria pero válida: se requiere nivel de maestría proporcional
+        int maestriaRequerida = criatura.getNivelEnergia() / 10;
+
+        if (this.nivelMaestria < maestriaRequerida) {
+            throw new FaltaDeMaestriaException(
+                "Maestría insuficiente para entrenar a " + criatura.getNombre()
+            );
+        }
+
+        // Entrenamiento polimórfico según tipo: Salvaje / Domesticada / Ancestral
+        criatura.entrenar();
     }
 
-    /**
-     * Intenta pacificar una criatura inestable. La solución debe ser polimórfica:
-     * cada tipo de criatura deberá ofrecer su propia forma de pacificarse.
-     *
-     * Implementación pendiente hasta disponer de la interfaz pública de Criatura.
-     */
+    
     public void pacificar(String nombreCriatura) {
-        // TODO: implementar pacificación usando el comportamiento polimórfico de Criatura
-        throw new UnsupportedOperationException("Método pacificar aún no implementado");
+        Criatura criatura = criaturas.get(nombreCriatura);
+
+        if (criatura == null) {
+            throw new IllegalArgumentException("La criatura no existe: " + nombreCriatura);
+        }
+
+        if (criatura.esInestable()) {
+            criatura.pacificar();
+        }
     }
 
+   
+   
     /**
      * Devuelve cuántas criaturas registradas tienen transformaciones aplicadas.
      * Lo implementaremos cuando sepamos cómo se representan las transformaciones en Criatura.
