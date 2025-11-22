@@ -29,12 +29,8 @@ public class MaestroElemental {
         this.criaturas = new HashMap<>();
     }
 
-    // ----- Operaciones sobre criaturas -----
+    // operaciones sobre criaturas
 
-    /**
-     * Registra (agrega o reemplaza) una criatura a cargo del maestro.
-     * La clave es el nombre de la criatura (suponemos que Criatura tiene getNombre()).
-     */
     public void registrarCriatura(Criatura criatura) {
         if (criatura == null) {
             throw new IllegalArgumentException("Criatura no puede ser nula");
@@ -46,28 +42,24 @@ public class MaestroElemental {
         criaturas.put(nombreCriatura, criatura);
     }
 
-    /**
-     * Devuelve la criatura registrada por nombre, o null si no existe.
-     */
+//    Devuelve la criatura registrada por nombre, o null si no existe.
     public Criatura obtenerCriatura(String nombre) {
         return criaturas.get(nombre);
     }
 
-    /**
-     * Devuelve la colección inmutable de criaturas a cargo del maestro.
-     */
+   
+//    Devuelve la colección inmutable de criaturas a cargo del maestro.
+    
     public Collection<Criatura> listarCriaturas() {
         return Collections.unmodifiableCollection(criaturas.values());
     }
 
-    /**
-     * Devuelve la cantidad de criaturas a cargo.
-     */
+//  Devuelve la cantidad de criaturas a cargo.
     public int cantidadCriaturas() {
         return criaturas.size();
     }
 
-    // ----- Getters básicos -----
+  
     public String getNombre() {
         return nombre;
     }
