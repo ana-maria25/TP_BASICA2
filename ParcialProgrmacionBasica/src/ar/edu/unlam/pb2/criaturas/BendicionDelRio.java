@@ -28,3 +28,4 @@ public class BendicionDelRio extends Transformacion {
         return original.entrenar();
     }
 }
+
