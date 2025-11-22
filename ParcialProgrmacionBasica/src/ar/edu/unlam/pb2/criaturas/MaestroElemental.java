@@ -115,16 +115,28 @@ public class MaestroElemental {
         }
     }
 
-   
-   
-    /**
-     * Devuelve cuántas criaturas registradas tienen transformaciones aplicadas.
-     * Lo implementaremos cuando sepamos cómo se representan las transformaciones en Criatura.
-     */
+    
     public int cantidadCriaturasTransformadas() {
-        // TODO: requerirá consultar un método de Criatura (p.ej. tieneTransformaciones())
-        throw new UnsupportedOperationException("Método cantidadCriaturasTransformadas aún no implementado");
+        int total = 0;
+
+        for (Criatura c : criaturas.values()) {
+            if (c instanceof Transformacion) {
+                total++;
+            }
+        }
+        return total;
     }
+    
+    //reemplazar la criatura
+    
+    public void transformar(String nombreCriatura, Transformacion transformada) {
+        if (!criaturas.containsKey(nombreCriatura)) {
+            throw new IllegalArgumentException("La criatura no existe: " + nombreCriatura);
+        }
+        criaturas.put(nombreCriatura, transformada);
+    }
+
+
 
     // Métodos de utilidad que pueden usarse en tests/reportes
     public Map<String, Criatura> getMapaCriaturas() {

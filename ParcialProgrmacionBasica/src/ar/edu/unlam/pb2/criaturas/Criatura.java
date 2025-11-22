@@ -49,5 +49,11 @@ public abstract class Criatura {
 	    this.nivelEnergia += cantidad;
 	}
 	
+	
+	//agregamos para saber si una criatura esta transformada
+	public boolean tieneTransformaciones() {
+	    return this instanceof Transformacion;
+	}
+
 }
 
