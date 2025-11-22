@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
+
+//SRP: solo representa a la criatura y sus atributos/métodos básicos.
 public abstract class Criatura {
 	protected String nombre; 
 	protected Integer nivelEnergia;
