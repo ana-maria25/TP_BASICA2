@@ -25,13 +25,13 @@ public class InteraccionCriaturasTest {
         assertTrue(c2.esInestable());
     }
 
-    @Test
+    @Test 
     public void testAfinidadCompartidaGanaEnergia() {
         c2 = new CriaturaAgua("Agua2", 40, Comportamiento.TRANQUILA);
         interaccion.interactuar(c1, c2);
 
-        assertEquals(Integer.valueOf(60), c1.getNivelEnergia()); // 50 + 10
-        assertEquals(Integer.valueOf(50), c2.getNivelEnergia()); // 40 + 10
+        assertEquals(Integer.valueOf(60), c1.getNivelEnergia()); 
+        assertEquals(Integer.valueOf(50), c2.getNivelEnergia());
     }
 
     @Test
@@ -39,8 +39,8 @@ public class InteraccionCriaturasTest {
         c1 = new TransformacionAgua(new CriaturaAgua("AquaLegendaria", 50, Comportamiento.TRANQUILA));
         interaccion.interactuar(c1, c2);
 
-        assertEquals(Integer.valueOf(70), c1.getNivelEnergia()); // 50 + 20
-        assertEquals(Integer.valueOf(45), c2.getNivelEnergia()); // 60 - 15
+        assertEquals(Integer.valueOf(70), c1.getNivelEnergia()); 
+        assertEquals(Integer.valueOf(45), c2.getNivelEnergia()); 
     }
 
 }

@@ -10,7 +10,7 @@ public class CriaturaAgua extends Criatura {
 
     @Override
     public Integer entrenar() {
-        // Lógica de entrenamiento simple para el test
+  
         this.nivelEnergia += 5;
         return this.nivelEnergia;
     }

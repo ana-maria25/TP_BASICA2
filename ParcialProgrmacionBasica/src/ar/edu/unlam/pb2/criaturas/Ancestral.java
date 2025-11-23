@@ -7,26 +7,22 @@ public class Ancestral extends Criatura {
 			Comportamiento comportamiento) {
 		super(nombre, nivelEnergia, afinidadElemental, comportamiento);
 		
-		 // Regla: nunca menos de 100
+		
         if (this.nivelEnergia < 100) {
             this.nivelEnergia = 100;
         }
 	}
 	
-	//se agregan logica a entrenamiento
-
 	@Override
 	public Integer entrenar() {
-		int aumento = 25; // estable por defecto
+		int aumento = 25; 
 
-        // Si el entrenamiento es extremo, se vuelve inestable
         if (aumento > 30) {
             this.comportamiento = Comportamiento.INESTABLE;
         }
 
         this.aumentarEnergia(aumento);
 
-        // Regla obligatoria: nunca menos de 100
         if (this.nivelEnergia < 100) {
             this.nivelEnergia = 100;
         }

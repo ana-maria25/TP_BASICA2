@@ -7,9 +7,6 @@ import java.util.Map;
 
 public class ReportesConsejo {
 
-    // ----------------------------------------------------------------------
-    // 1. Listar todas las criaturas registradas por todos los maestros
-    // ----------------------------------------------------------------------
     public List<Criatura> listarTodasCriaturas(List<MaestroElemental> maestros) {
         List<Criatura> todas = new ArrayList<>();
 
@@ -23,9 +20,7 @@ public class ReportesConsejo {
         return todas;
     }
 
-    // ----------------------------------------------------------------------
-    // 2. Obtener la criatura con mayor energía total
-    // ----------------------------------------------------------------------
+   
     public Criatura criaturaConMayorEnergia(List<MaestroElemental> maestros) {
         List<Criatura> todas = listarTodasCriaturas(maestros);
 
@@ -40,9 +35,7 @@ public class ReportesConsejo {
         return max;
     }
 
-    // ----------------------------------------------------------------------
-    // 3. Determinar qué maestro tiene más criaturas transformadas
-    // ----------------------------------------------------------------------
+
     public MaestroElemental maestroConMasTransformadas(List<MaestroElemental> maestros) {
         if (maestros == null || maestros.isEmpty()) return null;
 
@@ -61,9 +54,7 @@ public class ReportesConsejo {
         return max;
     }
 
-    // ----------------------------------------------------------------------
-    // 4. Mapa con cantidad de criaturas por afinidad elemental
-    // ----------------------------------------------------------------------
+
     public Map<AfinidadElemental, Integer> cantidadPorAfinidad(List<MaestroElemental> maestros) {
         Map<AfinidadElemental, Integer> mapa = new HashMap<>();
 
