@@ -8,7 +8,7 @@ public class CriaturaFuego extends Criatura {
 
     @Override
     public Integer entrenar() {
-        // lógica simple de entrenamiento
+  
         this.nivelEnergia += 5;
         return this.nivelEnergia;
     }

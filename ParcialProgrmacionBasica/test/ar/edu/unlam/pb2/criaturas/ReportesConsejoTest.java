@@ -28,16 +28,16 @@ public class ReportesConsejoTest {
         reporte = new ReportesConsejo();
         maestros = new ArrayList<>();
 
-        // Maestros
+       
         maestro1 = new MaestroElemental("Aelar", 30, AfinidadElemental.AGUA);
         maestro2 = new MaestroElemental("Fyra", 45, AfinidadElemental.FUEGO);
 
-        // Criaturas base
+        
         agua1 = new Domesticada("Naiad", 120, AfinidadElemental.AGUA, Comportamiento.TRANQUILA);
         fuego1 = new Salvaje("Fenix", 150, AfinidadElemental.FUEGO, Comportamiento.TRANQUILA);
         tierra1 = new Ancestral("Golem", 180, AfinidadElemental.TIERRA, Comportamiento.TRANQUILA);
 
-        // Transformación simulada
+     
         transformada = new Transformacion(agua1) {
         	
             @Override
@@ -57,12 +57,11 @@ public class ReportesConsejoTest {
             
             @Override
             public String getNombre() {
-                // Nombre distinto para que no reemplace a la original en el HashMap
                 return original.getNombre() + " (Transformada)";
             }
         };
 
-        // Registrar criaturas
+       
         maestro1.registrarCriatura(agua1);
         maestro1.registrarCriatura(transformada);
 
@@ -73,9 +72,7 @@ public class ReportesConsejoTest {
         maestros.add(maestro2);
     }
 
-    // -------------------------------------------------
-    // 1️⃣ Listar todas las criaturas
-    // -------------------------------------------------
+ 
     @Test
     public void testListarTodasCriaturas() {
         List<Criatura> todas = reporte.listarTodasCriaturas(maestros);
@@ -93,9 +90,6 @@ public class ReportesConsejoTest {
         assertTrue(todas.isEmpty());
     }
 
-    // -------------------------------------------------
-    // 2️⃣ Criatura con mayor energía
-    // -------------------------------------------------
     @Test
     public void testCriaturaConMayorEnergia() {
         Criatura mayor = reporte.criaturaConMayorEnergia(maestros);
@@ -110,9 +104,6 @@ public class ReportesConsejoTest {
         assertNull(mayor);
     }
 
-    // -------------------------------------------------
-    // 3️⃣ Maestro con más transformadas
-    // -------------------------------------------------
     @Test
     public void testMaestroConMasTransformadas() {
         MaestroElemental max = reporte.maestroConMasTransformadas(maestros);
@@ -129,7 +120,6 @@ public class ReportesConsejoTest {
 
     @Test
     public void testMaestroConMasTransformadasEmpate() {
-        // Crear empate agregando 1 transformada al maestro2
         Transformacion t2 = new Transformacion(fuego1) {
             @Override
             public Integer getNivelEnergia() {
@@ -153,9 +143,6 @@ public class ReportesConsejoTest {
         assertTrue(max.getNombre().equals("Aelar") || max.getNombre().equals("Fyra"));
     }
 
-    // -------------------------------------------------
-    // 4️⃣ Cantidad de criaturas por afinidad
-    // -------------------------------------------------
     @Test
     public void testCantidadPorAfinidad() {
         Map<AfinidadElemental, Integer> mapa = reporte.cantidadPorAfinidad(maestros);
@@ -164,7 +151,6 @@ public class ReportesConsejoTest {
         assertEquals(Integer.valueOf(1), mapa.get(AfinidadElemental.FUEGO));
         assertEquals(Integer.valueOf(1), mapa.get(AfinidadElemental.TIERRA));
 
-        // afinidad sin criaturas
         assertNull(mapa.get(AfinidadElemental.AIRE));
     }
 

@@ -7,11 +7,9 @@ public class Domesticada extends Criatura{
 	protected Domesticada(String nombre, Integer nivelEnergia, AfinidadElemental afinidadElemental,
 			Comportamiento comportamiento) {
 		super(nombre, nivelEnergia, afinidadElemental, comportamiento);
-		 // Regla del TP: Domesticada nunca es inestable
+		 
         this.comportamiento = Comportamiento.TRANQUILA;
 	}
-	
-	//se agregan logica a entrenamiento
 
 	@Override
 	public Integer entrenar() {
@@ -19,7 +17,6 @@ public class Domesticada extends Criatura{
 
 	        this.aumentarEnergia(aumento);
 
-	        // Nunca puede quedar inestable
 	        this.comportamiento = Comportamiento.TRANQUILA;
 
 	        return this.nivelEnergia;

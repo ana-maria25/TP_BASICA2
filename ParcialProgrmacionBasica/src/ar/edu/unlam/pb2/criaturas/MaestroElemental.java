@@ -8,9 +8,9 @@ import java.util.Collection;
 public class MaestroElemental {
 
 	private String nombre;
-    private int nivelMaestria; // 1..50
+    private int nivelMaestria; 
     private AfinidadElemental afinidadPrincipal;
-    private HashMap<String, Criatura> criaturas; // clave: nombre de criatura
+    private HashMap<String, Criatura> criaturas; 
 
     public MaestroElemental(String nombre, int nivelMaestria, AfinidadElemental afinidadPrincipal) {
         if (nombre == null || nombre.trim().isEmpty()) {
@@ -29,8 +29,6 @@ public class MaestroElemental {
         this.criaturas = new HashMap<>();
     }
 
-    // operaciones sobre criaturas
-
     public void registrarCriatura(Criatura criatura) {
         if (criatura == null) {
             throw new IllegalArgumentException("Criatura no puede ser nula");
@@ -42,19 +40,18 @@ public class MaestroElemental {
         criaturas.put(nombreCriatura, criatura);
     }
 
-//    Devuelve la criatura registrada por nombre, o null si no existe.
+
     public Criatura obtenerCriatura(String nombre) {
         return criaturas.get(nombre);
     }
 
    
-//    Devuelve la colección inmutable de criaturas a cargo del maestro.
-    
+
     public Collection<Criatura> listarCriaturas() {
         return Collections.unmodifiableCollection(criaturas.values());
     }
 
-//  Devuelve la cantidad de criaturas a cargo.
+
     public int cantidadCriaturas() {
         return criaturas.size();
     }
@@ -81,7 +78,7 @@ public class MaestroElemental {
             throw new IllegalArgumentException("La criatura no existe: " + nombreCriatura);
         }
 
-        // Regla arbitraria pero válida: se requiere nivel de maestría proporcional
+
         int maestriaRequerida = criatura.getNivelEnergia() / 10;
 
         if (this.nivelMaestria < maestriaRequerida) {
@@ -90,7 +87,6 @@ public class MaestroElemental {
             );
         }
 
-        // Entrenamiento polimórfico según tipo: Salvaje / Domesticada / Ancestral
         criatura.entrenar();
     }
 
@@ -119,7 +115,7 @@ public class MaestroElemental {
         return total;
     }
     
-    //reemplazar la criatura
+ 
     
     public void transformar(String nombreCriatura, Transformacion transformada) {
         if (!criaturas.containsKey(nombreCriatura)) {
@@ -128,9 +124,8 @@ public class MaestroElemental {
         criaturas.put(nombreCriatura, transformada);
     }
 
-
-
-    // Métodos de utilidad que pueden usarse en tests/reportes
+    
+    
     public Map<String, Criatura> getMapaCriaturas() {
         return Collections.unmodifiableMap(criaturas);
     }

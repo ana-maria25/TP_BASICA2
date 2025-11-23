@@ -12,12 +12,10 @@ public class Salvaje extends Criatura{
 	
 	
 	
-	//se agrega logica al entrenamiento
 
 	@Override
 	public Integer entrenar() {
 		
-		// Aumento impredecible (TP deja libertad)
         int aumento = 20;
 
         this.aumentarEnergia(aumento);

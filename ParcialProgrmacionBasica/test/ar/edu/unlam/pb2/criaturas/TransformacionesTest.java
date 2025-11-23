@@ -57,10 +57,10 @@ public class TransformacionesTest {
 	public void queLasTransformacionesSeEncadenenCorrectamente() {
 	    Criatura c = new Salvaje("Rok", 60, AfinidadElemental.FUEGO, Comportamiento.TRANQUILA);
 
-	    c = new BendicionDelRio(c);      // 60 → 120
-	    c = new LlamaInterna(c);         // +30 → 150
-	    c = new VinculoTerrestre(c);     // sigue 150
-	    c = new AscensoDelViento(c);     // afinidad aire
+	    c = new BendicionDelRio(c);      
+	    c = new LlamaInterna(c);         
+	    c = new VinculoTerrestre(c);     
+	    c = new AscensoDelViento(c);     
 
 	    assertEquals(150, (int) c.getNivelEnergia());
 	    assertEquals(AfinidadElemental.AIRE, c.getAfinidadElemental());
@@ -84,7 +84,7 @@ public class TransformacionesTest {
 	    MaestroElemental m = new MaestroElemental("Ari", 50, AfinidadElemental.FUEGO);
 
 	    Criatura c = new Salvaje("Rok", 60, AfinidadElemental.FUEGO, Comportamiento.TRANQUILA);
-	    c = new BendicionDelRio(c); // 120
+	    c = new BendicionDelRio(c); 
 
 	    m.registrarCriatura(c);
 
